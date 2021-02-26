@@ -58,31 +58,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-# Boundary Condition
-pn[0, :] = np.copy(pn[1, :])
-pn[-1, :] = np.copy(pn[-2, :])
-pn[:, 0] = np.copy(pn[:, 1])
-pn[:, -1] = np.copy(pn[:, -2])
-
-# Explicit Allen-Cahn
-coef1 = dt / (eps ** 2)
-coef2 = dt / h2
-part1 = (1 + coef1) * pn - coef1 * pn ** 3
-
-for i in range(1, Nx + 1):
-    for j in range(1, Ny + 1):
-        pnp[i, j] = coef2 * (pn[i - 1, j] + pn[i + 1, j] + pn[i, j - 1]
-                    + pn[i, j + 1] - 4.0 * pn[i, j])
-
-pn = part1 + pnp
-
-
-
-
-
-
-
