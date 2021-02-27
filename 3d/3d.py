@@ -13,7 +13,7 @@ if __name__ == "__main__":
     parser.add_argument('--nx', default=100, type=int, help='Nx')
     parser.add_argument('--ny', default=100, type=int, help='Ny')
     parser.add_argument('--nz', default=100, type=int, help='Nx')
-    parser.add_argument('--init', default='sphere', type=str, help='initial condition') # ['sphere', 'dumbell', 'star', 'separation', 'torus', 'maze']
+    parser.add_argument('--init', default='sphere', type=str, help='initial condition') # ['sphere', 'dumbbell', 'star', 'separation', 'torus', 'maze']
     parser.add_argument('--mode', default=1, type=int, help='code') # 0: pytorch gpu, 1: pytorch cpu, 2: python cpu
     parser.add_argument('--save', default=0, type=int, help='npy files') # 0: No, 1: Yes
     parser.add_argument('--l2', default=0, type=int, help='l2 loss') # 0: No, 1: Yes
