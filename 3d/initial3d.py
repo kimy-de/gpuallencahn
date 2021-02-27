@@ -5,7 +5,7 @@ def initial_value(Nx, Ny, Nz, eps, init):
     # Setting Parameters
     h = 1 / Nx
 
-    if init == 'dumbell':
+    if init == 'dumbbell':
         x = np.linspace(-0.5 * h, 2 + 0.5 * h, Nx + 2)
         y = np.linspace(-0.5 * h, 1 + 0.5 * h, Ny + 2)
         z = np.linspace(-0.5 * h, 1 + 0.5 * h, Nz + 2)
@@ -34,7 +34,7 @@ def initial_value(Nx, Ny, Nz, eps, init):
                     pn[i, j, k] = np.tanh(
                         (R0 - np.sqrt((x[i] - 0.5) ** 2 + (y[j] - 0.5) ** 2 + (z[k] - 0.5) ** 2)) / (np.sqrt(2) * eps))
 
-    elif init == 'dumbell':
+    elif init == 'dumbbell':
         R0 = 0.25
         for i in range(Nx + 2):
             for j in range(Ny + 2):
