@@ -16,7 +16,6 @@ if __name__ == "__main__":
     parser.add_argument('--init', default='sphere', type=str, help='initial condition') # ['sphere', 'dumbbell', 'star', 'separation', 'torus', 'maze']
     parser.add_argument('--mode', default=1, type=int, help='code') # 0: pytorch gpu, 1: pytorch cpu, 2: python cpu
     parser.add_argument('--save', default=0, type=int, help='npy files') # 0: No, 1: Yes
-    parser.add_argument('--l2', default=0, type=int, help='l2 loss') # 0: No, 1: Yes
     args = parser.parse_args()
     print(args)
 
@@ -32,26 +31,13 @@ if __name__ == "__main__":
     pn = initial3d.initial_value(args.nx, args.ny, args.nz,  eps, args.init)
 
     # Numerical solution
-    if (args.mode != 2) or (args.l2 == 1):
-        if args.l2 == 0:
-            mode = args.mode
-        else:
-            mode = 0
+    if args.mode != 2:
+
         pnusols, gputime = pytorch_code.fdm_pytorch(args.nx, args.ny, args.nz, pn, h2, dt, eps,
-                                                    args.maxit, args.init, args.save, mode)
+                                                    args.maxit, args.init, args.save, args.mode)
 
-    if (args.mode == 2) or (args.l2 == 1):
+    else:
         nusols, cputime = python_cpu.fdm(args.nx, args.ny, args.nz, h2, dt, eps, pn, pnp, args.maxit, args.init, args.save)
-
-    if args.l2 == 1:
-        error = []
-        for i in range(len(nusols)):
-            l2 = np.sqrt(np.sum((pnusols[i] - nusols[i]) ** 2) / (args.nx * args.ny * args.nz))
-            error.append(l2)
-
-        plt.plot(error)
-        plt.title("L2 error vs time")
-        plt.savefig("./data/error.png")
 
 
 
