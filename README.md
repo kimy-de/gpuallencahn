@@ -1,8 +1,14 @@
-# GPU Accelerated Numerical Simulation of Allen-Cahn Equation
-abstract
+# Fast Numerical Simulation of Allen-Cahn Equation
+Simulation speed depends on code structures, hence it is crucial how to build a fast algorithm. We solve the Allen-Cahn equation by an explicit finite difference method, so it requires grid calculations implemented by many for-loops in the simulation code. In terms of programming, many for-loops make the simulation speed slow. To solve the problem, we propose a model architecture containing a pad and a convolution operation for the Allen-Cahn equation. Also, the GPU operation is used to boost up the speed more. In this way, the simulation of other differential equations can be improved. In this paper, various numerical simulations are conducted to confirm that the Allen-Cahn equation follows motion by mean curvature and phase separation in two-dimensional and three-dimensional spaces. Finally, we demonstrate that our algorithm is much faster than an unoptimized code and the CPU operation.
 
 ## Allen-Cahn Equation
-수식, 결과 그림
+<p align="center">
+<img width="509" alt="model_f" src="https://user-images.githubusercontent.com/52735725/119031362-4e5a0280-b9ab-11eb-8576-07262c00eb3d.png">
+  <img width="708" alt="스크린샷 2021-05-20 20 43 03" src="https://user-images.githubusercontent.com/52735725/119032019-038cba80-b9ac-11eb-9c79-c94fb79ec825.png">
+
+</p>
+
+
 
 ## Implementations
 
@@ -28,7 +34,8 @@ python 3d.py --mode 0 --init maze
 ```
 
 ## Results
-속도 테이블
+<p align="center">
+<img width="786" alt="Screen Shot 2021-04-10 at 8 58 35 AM" src="https://user-images.githubusercontent.com/52735725/119032113-199a7b00-b9ac-11eb-8b9d-b49b00c6bde9.png">
+  <img width="426" alt="스크린샷 2021-04-29 22 00 30" src="https://user-images.githubusercontent.com/52735725/119032166-2ae38780-b9ac-11eb-9e0c-096ee1f467f2.png">
 
-## Citation
-ㅍㅍ
+</p>
