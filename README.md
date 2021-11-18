@@ -1,4 +1,5 @@
-# Yongho Kim, Gilnam Ryu, and  Yongho Choi, (2021) Fast and Accurate Numerical Solution of Allen–Cahn Equation, Mathematical Problems in Engineering, accepted
+# Fast and Accurate Numerical Solution of Allen–Cahn Equation
+#### Yongho Kim, Gilnam Ryu, and  Yongho Choi (2021) Fast and Accurate Numerical Solution of Allen–Cahn Equation, Mathematical Problems in Engineering, accepted
 Simulation speed depends on code structures, hence it is crucial how to build a fast algorithm. We solve the Allen–Cahn equation by an explicit finite difference method, so it requires grid calculations implemented by many for-loops in the simulation code. In terms of programming, many for-loops make the simulation speed slow. We propose a model architecture containing a pad and a convolution operation on the Allen–Cahn equation for fast computations while maintaining accuracy. Also, the GPU operation is used to boost up the speed more. In this way, the simulation of other differential equations can be improved. In this paper, various numerical simulations are conducted to confirm that the Allen–Cahn equation follows motion by mean curvature and phase separation in two-dimensional and three-dimensional spaces. Finally, we demonstrate that our algorithm is much faster than an unoptimized code and the CPU operation.
 
 
