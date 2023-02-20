@@ -15,8 +15,8 @@ class Net(nn.Module):
 
     def forward(self, x):
         u_pad = self.pad(x) # boundary condition
-        reaction = F.conv2d(u_pad, self.delta) # reaction term
-        x = (1 + self.alpha) * x - self.alpha * x ** 3 + self.beta * reaction
+        diffusion = F.conv2d(u_pad, self.delta) # diffusion term
+        x = (1 + self.alpha) * x - self.alpha * x ** 3 + self.beta * diffusion
 
         return x
 
